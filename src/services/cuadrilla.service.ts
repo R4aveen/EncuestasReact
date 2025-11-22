@@ -43,7 +43,6 @@ export const CuadrillaService = {
         }
     },
 
-    // 1. SUBIR EVIDENCIA (Multipart/Form-Data) - No finaliza, solo sube.
     subirEvidencia: async (id: number, formData: FormData) => {
         try {
             const config = getAuthConfig();
@@ -54,8 +53,6 @@ export const CuadrillaService = {
                 {
                     headers: {
                         ...config.headers,
-                        // ¡IMPORTANTE! ELIMINA LA LÍNEA DE CONTENT-TYPE
-                        // Axios detectará que es FormData y pondrá el header correcto con el 'boundary'
                     }
                 }
             );
@@ -65,12 +62,11 @@ export const CuadrillaService = {
         }
     },
 
-    // 2. FINALIZAR (JSON) - Cambia estado y guarda comentario.
     finalizarIncidencia: async (id: number, comentario: string) => {
         try {
             const response = await axios.post(
                 `${BASE_API_URL}${id}/finalizar/`,
-                { comentario }, // Enviamos el comentario en el cuerpo
+                { comentario },
                 getAuthConfig()
             );
             return response.data;
@@ -89,7 +85,6 @@ export const CuadrillaService = {
     },
 
     getEstadisticas: async () => {
-        // ... (Tu lógica de estadísticas existente puede ir aquí)
         try {
             const response = await axios.get(BASE_API_URL, getAuthConfig());
             const incidencias = response.data;
@@ -105,7 +100,6 @@ export const CuadrillaService = {
     }
 };
 
-// Helper para redirigir si el token expira
 const handleAuthError = (error: any) => {
     if (error.response && (error.response.status === 401 || error.response.status === 403)) {
         localStorage.removeItem('token');
