@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// Asegúrate de que esta URL coincida con tu configuración de Django
-const BASE_API_URL = '/incidencias/api/incidencias/';
 
 const getAuthConfig = () => {
     const token = localStorage.getItem('token');
@@ -11,6 +9,8 @@ const getAuthConfig = () => {
         },
     };
 };
+
+const BASE_API_URL = import.meta.env.VITE_BASE_API_URL;
 
 export const CuadrillaService = {
     getIncidencias: async (estado?: string) => {
