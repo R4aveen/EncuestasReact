@@ -1,24 +1,17 @@
-/* Importamos Bootstrap primero (asegúrate de tener npm install bootstrap) */
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 :root {
-  /* --- TUS COLORES PERSONALIZADOS --- */
   --color-background-page: #fffffe;
   --color-background-secondary: #e3f6f5;
   --color-text-headline: #272343;
   --color-text-paragraph: #2d334a;
   --color-primary: #ffd803;
-  /* Amarillo */
   --color-primary-text: #272343;
-  /* Texto oscuro para el amarillo */
   --color-highlight: #bae8e8;
 
-  /* --- OVERRIDE DE VARIABLES DE BOOTSTRAP (MAGIA) --- */
-  /* Esto hace que <Button variant="primary"> sea amarillo automáticamente */
   --bs-primary: #ffd803;
   --bs-primary-rgb: 255, 216, 3;
 
-  /* Fondo y texto base */
   --bs-body-bg: var(--color-background-page);
   --bs-body-color: var(--color-text-paragraph);
 }
@@ -34,9 +27,6 @@ body {
   color: var(--bs-body-color);
 }
 
-/* --- PERSONALIZACIÓN DE BOOTSTRAP --- */
-
-/* Botón Primario (Amarillo) - Forzamos texto oscuro */
 .btn-primary {
   color: var(--color-primary-text) !important;
   font-weight: 600;
@@ -45,14 +35,11 @@ body {
 
 .btn-primary:hover {
   background-color: #e6c200;
-  /* Un amarillo un poco más oscuro */
   color: var(--color-primary-text) !important;
 }
 
-/* Botón Outline Primary */
 .btn-outline-primary {
   color: #0d6efd;
-  /* Azul Bootstrap estándar para bordes, se ve mejor */
   border-color: #0d6efd;
 }
 
@@ -61,7 +48,6 @@ body {
   color: white;
 }
 
-/* Títulos */
 h1,
 h2,
 h3,
@@ -78,13 +64,11 @@ h6,
   font-weight: 700;
 }
 
-/* Arreglo para Modales centrados y bonitos */
 .modal-content {
   border: none !important;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Badges (Etiquetas de estado) más suaves */
 .badge {
   font-weight: 600;
   letter-spacing: 0.5px;
